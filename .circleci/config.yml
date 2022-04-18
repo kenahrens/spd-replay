@@ -8,7 +8,10 @@ jobs:
       - image: cimg/base:stable
     steps:
       - aws-eks/update-kubeconfig-with-authenticator:
+          aws-profile: demo 
+          aws-region: us-east-1 
           cluster-name: staging-decoy 
+          
       - checkout
       - run: kubectl get pods
 
