@@ -21,7 +21,6 @@ jobs:
       - run:
           command: |
             kubectl current-context
-            kubectl get services
 
       # - kubernetes/create-or-update-resource:
       #     resource-file-path: "tests/nginx-deployment/deployment.yaml"
