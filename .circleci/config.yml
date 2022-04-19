@@ -27,4 +27,6 @@ workflows:
   deployment:
     jobs:
       - create-deployment:
+          context:
+            - demo 
           cluster-name: staging-decoy
