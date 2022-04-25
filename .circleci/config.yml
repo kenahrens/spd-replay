@@ -20,7 +20,7 @@ jobs:
           install-kubectl: true
       - run:
           command: |
-            tools/deploy-replays.sh entry
+            tools/deploy-replays.sh standard
 
       # - kubernetes/create-or-update-resource:
       #     resource-file-path: "tests/nginx-deployment/deployment.yaml"
