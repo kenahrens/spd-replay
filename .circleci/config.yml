@@ -4,7 +4,7 @@ orbs:
   kubernetes: circleci/kubernetes@1.3
 
 jobs:
-  create-deployment:
+  replay-standard:
     docker:
       - image: 'cimg/python:3.10'
     parameters:
@@ -14,7 +14,7 @@ jobs:
         type: string
     steps:
       - checkout
-      - kubernetes/install
+      # - kubernetes/install
       - aws-eks/update-kubeconfig-with-authenticator:
           cluster-name: << parameters.cluster-name >>
           install-kubectl: true
@@ -31,7 +31,7 @@ jobs:
 workflows:
   deployment:
     jobs:
-      - create-deployment:
+      - replay-standard:
           context:
             - demo 
           cluster-name: staging-decoy

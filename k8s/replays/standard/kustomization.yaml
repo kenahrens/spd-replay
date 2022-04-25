@@ -5,7 +5,7 @@ resources:
   - ../../base
   - namespace.yaml
 
-namespace: podtato-entry-replay
+namespace: podtato-entry-standard
 
 patchesStrategicMerge:
   - replay.yaml
