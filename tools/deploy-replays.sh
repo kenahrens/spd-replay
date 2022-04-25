@@ -10,7 +10,7 @@ function deploy-and-check() {
   replay_ns=$(cat ${d}/namespace.yaml | grep 'name:' | cut -d ':' -f 2 | xargs)
   
   # Add build tag
-  replay_tag=${CIRCLE_SHA1-}
+  replay_tag=${CIRCLE_WORKFLOW_ID-}
   if [[ -z "$replay_tag" ]]; then
     replay_tag=$(date +replay-%s)
   fi
