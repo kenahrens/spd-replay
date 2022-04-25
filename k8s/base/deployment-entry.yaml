@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: podtato-head-entry
+  namespace: default
+  labels:
+    app: podtato-head
+spec:
+  selector:
+    matchLabels:
+      component: podtato-head-entry
+  template:
+    metadata:
+      labels:
+        component: podtato-head-entry
+    spec:
+      terminationGracePeriodSeconds: 5
+      containers:
+      - name: server
+        image: ghcr.io/speedscale/podtato-head/entry:0.2.7
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 9000
+        env:
+        - name: PODTATO_PORT
+          value: "9000"
