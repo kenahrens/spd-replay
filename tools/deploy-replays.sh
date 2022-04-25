@@ -25,10 +25,7 @@ function deploy-and-check() {
   
   echo "Waiting 7m for replay results to be Ready"
   if kubectl wait --for condition=Ready --timeout=7m replay/${replay_name} -n ${replay_ns}; then
-    report_id=$(kubectl get replay/${replay_name} -n ${replay_ns} -o jsonpath='{.status.reportID}')
-    echo "Report ID: ${report_id}"
-    report=$(speedctl get report ${report_id})
-    status=$(echo ${report} | jq -r .report.status)
+    status=$(kubectl get replay/${replay_name} -n ${replay_ns} -o json | jq '.status.conditions[-1].message' -r)
     echo "Status: ${status}"
   else
     echo "Timed out waiting for report"
@@ -49,6 +46,6 @@ function deploy-and-check() {
 }
 
 # User can optionally define a single replay
-replay=${1-entry}
+replay=${1-standard}
 echo "Deploying demo replays"
 deploy-and-check "k8s/replays/${replay}"
