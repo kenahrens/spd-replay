@@ -3,6 +3,7 @@ kind: Deployment
 metadata:
   name: podtato-head-entry
   annotations:
+    sidecar.speedscale.com/inject: "false"
     replay.speedscale.com/snapshot-id: ea42cb28-f7e7-4bef-9655-0034fd42ed52
     replay.speedscale.com/testconfig-id: performance_10replicas
     replay.speedscale.com/cleanup: "inventory"
