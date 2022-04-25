@@ -20,8 +20,6 @@ jobs:
           install-kubectl: true
       - run:
           command: |
-            ls -al
-            kubectl current-context
             tools/deploy-replays.sh entry
 
       # - kubernetes/create-or-update-resource:
