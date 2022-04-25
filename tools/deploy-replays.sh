@@ -8,7 +8,14 @@ function deploy-and-check() {
   # Get the workload name out of the inject yaml and strip whitespace. Gross, but works.
   workload=$(cat ${d}/replay.yaml | grep 'name:' | cut -d ':' -f 2 | xargs)
   replay_ns=$(cat ${d}/namespace.yaml | grep 'name:' | cut -d ':' -f 2 | xargs)
-
+  
+  # Add build tag
+  replay_tag=${CIRCLE_SHA1-}
+  if [[ -z "$replay_tag" ]]; then
+    replay_tag=$(date +replay-%s)
+  fi
+  echo "    replay.speedscale.com/build-tag: ${replay_tag}" >> "${d}/replay.yaml"
+  
   echo "------"
   echo "Replay: $d"
   echo "Workload name: ${workload}"

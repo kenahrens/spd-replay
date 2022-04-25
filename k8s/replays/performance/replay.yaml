@@ -7,3 +7,4 @@ metadata:
     replay.speedscale.com/testconfig-id: performance_10replicas
     replay.speedscale.com/cleanup: "inventory"
     replay.speedscale.com/mode: "full-replay"
+    replay.speedscale.com/responder-low-data: "true"
