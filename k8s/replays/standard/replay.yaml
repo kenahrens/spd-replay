@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: podtato-head-entry
   annotations:
-    replay.speedscale.com/snapshot-id: 7b12f302-9b65-462d-8482-68c66fa4fe6e
+    replay.speedscale.com/snapshot-id: 543588e4-cc40-4634-925a-6d16b6a98e4b
     replay.speedscale.com/testconfig-id: standard
     replay.speedscale.com/cleanup: "inventory"
     replay.speedscale.com/mode: "full-replay"
