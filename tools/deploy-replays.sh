@@ -37,11 +37,11 @@ function deploy-and-check() {
   kubectl delete -f "${d}/namespace.yaml" --wait=true || true
 
   case "${status}" in
-      "Complete"|"Missed Goals"|"Passed"|"Stopped")
-      return 0
-      ;;
-      *)
-      return 1
+    "Success: Test passed")
+    return 0
+    ;;
+    *)
+    return 1
   esac
 }
 
