@@ -4,7 +4,7 @@ metadata:
   name: podtato-head-entry
   annotations:
     sidecar.speedscale.com/inject: "false"
-    replay.speedscale.com/snapshot-id: ea42cb28-f7e7-4bef-9655-0034fd42ed52
+    replay.speedscale.com/snapshot-id: 39b0596a-b47a-4e4b-9bf6-4ed9f3671acf
     replay.speedscale.com/testconfig-id: standard
     replay.speedscale.com/cleanup: "inventory"
     replay.speedscale.com/mode: "full-replay"
