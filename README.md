@@ -1,1 +1,3 @@
-# spd-replay
+# Speedscale Replay
+
+This is a demo project.
