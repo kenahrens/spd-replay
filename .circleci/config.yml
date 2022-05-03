@@ -12,6 +12,10 @@ jobs:
         description: |
           Name of the EKS cluster
         type: string
+      kubectl-version:
+        description: |
+          Version of kubectl
+        type: string
     steps:
       - checkout
       - kubernetes/install-kubectl:
@@ -29,6 +33,10 @@ jobs:
       cluster-name:
         description: |
           Name of the EKS cluster
+        type: string
+      kubectl-version:
+        description: |
+          Version of kubectl
         type: string
     steps:
       - checkout
