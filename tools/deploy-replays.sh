@@ -20,6 +20,8 @@ function deploy-and-check() {
   echo "Replay: $d"
   echo "Workload name: ${workload}"
   echo "Replay NS: ${replay_ns}"
+  kv=$(kubectl version)
+  echo "kubectl version ${kv}"
 
   # Delete first in case of a previous failed run
   echo "Prep work clean-up $d"
