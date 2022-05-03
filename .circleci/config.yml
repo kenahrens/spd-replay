@@ -5,8 +5,7 @@ orbs:
 
 jobs:
   replay-standard:
-    docker:
-      - image: 'cimg/python:3.10'
+    executor: aws-eks/python3
     parameters:
       cluster-name:
         description: |
@@ -22,8 +21,7 @@ jobs:
           command: |
             tools/deploy-replays.sh standard
   replay-performance:
-    docker:
-      - image: 'cimg/python:3.10'
+    executor: aws-eks/python3
     parameters:
       cluster-name:
         description: |
