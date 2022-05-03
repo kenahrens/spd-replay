@@ -33,7 +33,6 @@ function deploy-and-check() {
   echo "Waiting 7m for replay results to be Ready"
   if kubectl wait --for condition=Ready --timeout=7m replay/${replay_name} -n ${replay_ns}; then
     status=$(kubectl get replay/${replay_name} -n ${replay_ns} -o json | jq '.status.conditions[-1].message' -r)
-    echo "*** Report Status: ${status}"
   else
     echo "*** Timed out waiting for report"
     return 1
@@ -41,7 +40,8 @@ function deploy-and-check() {
 
   # Once we have either timed out or gotten the report, clean up the namespace
   # echo "Cleaning up $d"
-  kubectl delete -f "${d}/namespace.yaml" --wait=true --quiet || true
+  kubectl delete -f "${d}/namespace.yaml" --wait=true || true
+  echo "*** Report Status: ${status}"
 
   case "${status}" in
     "Success: Test passed")
@@ -55,4 +55,5 @@ function deploy-and-check() {
 # User can optionally define a single replay
 replay=${1-standard}
 echo "Deploying demo replays"
-deploy-and-check "k8s/replays/${replay}"
+RES=deploy-and-check "k8s/replays/${replay}"
+echo "*** Result $RES"
