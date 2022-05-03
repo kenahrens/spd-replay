@@ -55,5 +55,4 @@ function deploy-and-check() {
 # User can optionally define a single replay
 replay=${1-standard}
 echo "Deploying demo replays"
-RES=deploy-and-check "k8s/replays/${replay}"
-echo "*** Result $RES"
+deploy-and-check "k8s/replays/${replay}"
