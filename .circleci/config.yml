@@ -56,9 +56,9 @@ workflows:
           context:
             - demo 
           cluster-name: staging-decoy
-          kubectl-version: "1.23"
+          kubectl-version: "v1.23.5"
       - replay-performance:
           context:
             - demo 
           cluster-name: staging-decoy
-          kubectl-version: "1.23"
+          kubectl-version: "v1.23.5"
