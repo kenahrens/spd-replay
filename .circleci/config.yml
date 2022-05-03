@@ -5,7 +5,8 @@ orbs:
 
 jobs:
   replay-standard:
-    executor: aws-eks/python3
+    docker:
+      - image: 'cimg/python:3.10'
     parameters:
       cluster-name:
         description: |
@@ -19,9 +20,11 @@ jobs:
           install-kubectl: true
       - run:
           command: |
+            sed -i .bak -e 's/v1alpha1/v1beta1/' ~/.kube/config
             tools/deploy-replays.sh standard
   replay-performance:
-    executor: aws-eks/python3
+    docker:
+      - image: 'cimg/python:3.10'
     parameters:
       cluster-name:
         description: |
@@ -35,6 +38,7 @@ jobs:
           install-kubectl: true
       - run:
           command: |
+            sed -i .bak -e 's/v1alpha1/v1beta1/' ~/.kube/config
             tools/deploy-replays.sh performance
 
 workflows:
