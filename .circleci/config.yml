@@ -14,7 +14,8 @@ jobs:
         type: string
     steps:
       - checkout
-      - kubernetes/install-kubectl
+      - kubernetes/install-kubectl:
+          kubectl-version: "1.23.3"
       - aws-eks/update-kubeconfig-with-authenticator:
           cluster-name: << parameters.cluster-name >>
           # install-kubectl: true
@@ -31,7 +32,8 @@ jobs:
         type: string
     steps:
       - checkout
-      - kubernetes/install-kubectl
+      - kubernetes/install-kubectl:
+          kubectl-version: "1.23.3"
       - aws-eks/update-kubeconfig-with-authenticator:
           cluster-name: << parameters.cluster-name >>
           # install-kubectl: true
